@@ -1,4 +1,5 @@
 import time
+from logger import Logger
 
 class Buffer(object):
     def __init__(self, max_buffer):
@@ -8,14 +9,17 @@ class Buffer(object):
 
     def add_resource(self, resource):
         self.queue.append(resource)
-        print("%s - resource {%s} produced" % (time.ctime(time.time()), str(resource.id)))
+        self.print()
+        
+        # Logger.info('Resource {} produced'.format('{' + str(resource.id) + '}'))
 
     def remove_resource(self):
         resource = self.queue.pop(0)
-        print("%s - resource {%s} consumed" % (time.ctime(time.time()), str(resource.id)))
+        self.print()
+        # Logger.info('Resource {} consumed'.format('{' + str(resource.id) + '}'))
     
     def print(self):
-        message = "%s - buffer: ["
+        message = "%s - Buffer: ["
         count = 0
         i = 0
         for item in self.queue:
