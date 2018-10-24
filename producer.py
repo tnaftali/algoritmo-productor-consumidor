@@ -18,5 +18,5 @@ class Producer(object):
             self.monitor.check_full()
             self.produce(id)
             id += 1
-            random_interval = float(random.randrange(0, 1000))/100
+            random_interval = float(random.randrange(0, 500))/100
             time.sleep(random_interval)

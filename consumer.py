@@ -16,5 +16,5 @@ class Consumer(object):
         while 1:
             self.monitor.check_empty()
             self.consume()
-            random_interval = float(random.randrange(0, 1000))/100
+            random_interval = float(random.randrange(0, 500))/100
             time.sleep(random_interval)
