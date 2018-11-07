@@ -1,16 +1,19 @@
 from resource import Resource
 import time
 import random
+from urllib import request, parse
+import json
 
 class Producer(object):
-    def __init__(self, buffer, monitor, interval = 1):
-        self.buffer = buffer
+    def __init__(self, monitor, interval = 1):
         self.interval = interval
         self.monitor = monitor
 
     def produce(self, id):
-        resource = Resource(id)
-        self.buffer.add_resource(resource)
+        data = { }
+        req =  request.Request("http://127.0.0.1:5000/produce", data=data)
+        resp = request.urlopen(req)
+        print(resp.read().decode('utf-8'))
     
     def auto_produce(self):
         id = 1

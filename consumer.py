@@ -2,15 +2,17 @@ from buffer import Buffer
 import time
 import random
 from logger import Logger
+from urllib import request, parse
+import json
 
 class Consumer(object):
-    def __init__(self, buffer, monitor, interval = 1):
-        self.buffer = buffer
+    def __init__(self, monitor, interval = 1):
         self.interval = interval
         self.monitor = monitor
 
     def consume(self):
-        self.buffer.remove_resource()
+        resp = request.urlopen('http://127.0.0.1:5000/consume')
+        print(resp.read().decode('utf-8'))
 
     def auto_consume(self):
         while 1:

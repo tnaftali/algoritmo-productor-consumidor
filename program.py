@@ -10,12 +10,12 @@ import random
 from logger import Logger
 
 def main():
-    max_buffer = input.insert_number('insert maximum buffer capacity: ')
+    # max_buffer = input.insert_number('insert maximum buffer capacity: ')
 
-    buffer = Buffer(max_buffer)
-    monitor = Monitor(buffer, max_buffer)
-    producer = Producer(buffer, monitor)    
-    consumer = Consumer(buffer, monitor)
+    # buffer = Buffer(max_buffer)
+    monitor = Monitor()
+    producer = Producer(monitor)    
+    consumer = Consumer(monitor)
 
     try:
         threading.Thread(target=producer.auto_produce).start()
