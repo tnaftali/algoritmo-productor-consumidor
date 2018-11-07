@@ -11,7 +11,7 @@ class Producer(object):
 
     def produce(self, id):
         data = { }
-        req =  request.Request("http://127.0.0.1:5000/produce", data=data)
+        req =  request.Request("https://producer-consumer-problem.herokuapp.com/produce", data=data)
         resp = request.urlopen(req)
         print(resp.read().decode('utf-8'))
     

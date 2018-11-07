@@ -11,7 +11,7 @@ class Consumer(object):
         self.monitor = monitor
 
     def consume(self):
-        resp = request.urlopen('http://127.0.0.1:5000/consume')
+        resp = request.urlopen('https://producer-consumer-problem.herokuapp.com/consume')
         print(resp.read().decode('utf-8'))
 
     def auto_consume(self):
